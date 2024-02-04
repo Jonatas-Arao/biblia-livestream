@@ -1,5 +1,5 @@
 //  Acessando Servidor Socket Local
-var socket = io('http://192.168.100.86:3000');
+var socket = io('https://bible-livestream.onrender.com');
 const authToken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlNhdCBBcHIgMTEgMjAyMCAwMzoxNDozMiBHTVQrMDAwMC5qb25hdGFzMTJhcG9zdG9saWNvQGdtYWlsLmNvbSIsImlhdCI6MTU4NjU3NDg3Mn0.PG8AsYYoN7q3ZPgoCulj9UPiTIaLkOw_RNlcY4_XFEw'; //Insira o Token de Autenticação aqui
  // Obtendo acesso à API
 const api = axios.create({
