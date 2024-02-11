@@ -33,17 +33,18 @@ server.get('/screen', function(req, res){
 
 // Ouvindo Sockets e enviando para Janela BrowserWindow e Servidor Local
 io.on('connection', function(socket){
+  console.log('a user connected');
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
   socket.on('showVerse', function(e){
     io.emit('showVerse', e);
-    console.log(e);
   });
-  socket.on('toggleVerse', function(e){
-    io.emit('toggleVerse', e);
-    console.log(e);
+  socket.on('removeVerse', function(e){
+    io.emit('removeVerse', e);
   });
   socket.on('style', function(e){
     io.emit('style', e)
-    console.log(e);
   });
 });
 

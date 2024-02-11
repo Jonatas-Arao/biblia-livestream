@@ -1,25 +1,14 @@
 {
-  "name": "biblia-obs",
+  "name": "biblia-livestream",
   "version": "1.2.0",
-  "description": "Ferramenta da Biblia para a aplicação de Streaming OBS",
+  "description": "Ferramenta da Biblia para qualquer aplicação de Streaming",
   "main": "main.js",
   "scripts": {
     "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Jonatas-Arao/biblia-obs"
-  },
-  "build": {
-    "appId": "biblia.for.obs",
-    "productName": "Bíblia OBS",
-    "mac": {
-      "category": "public.app-category.tools"
-    },
-    "win": {
-      "icon": "assets/icon/.icon-ico/icon.ico",
-      "target": "portable"
-    }
+    "url": "https://github.com/Jonatas-Arao/biblia-livestream"
   },
   "keywords": [
     "Bible",
@@ -29,11 +18,11 @@
   "author": "Jonatas Arão de Carvalho Neves",
   "license": "CC0-1.0",
   "devDependencies": {
-    "nodemon": "^2.0.3"
+    "nodemon": "^3.0.3"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "socket.io": "^2.3.0"
+    "socket.io": "^4.7.4"
   }
 }

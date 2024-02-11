@@ -8,39 +8,48 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/screen.css">
-    <link rel="stylesheet" href="./css/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>    
     <title>Biblia OBS</title>
 </head>
 <body>
+    <div id="background"></div>
     <!-- Span bible - Onde Mostra o Versículo -->
     <span id="bible"></span>
 
     <!-- Chamando Socket -->
-    <script src="./js/socket.io.slim.js"></script>
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js" integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4" crossorigin="anonymous"></script>
     <script>
         // Iniciando Socket.io
-        var socket = io('https://bible-livestream.onrender.com');
+        var socket = io('http://localhost:3000');
         window.addEventListener('DOMContentLoaded', () => {
             // Obtendo variavél da página
+            let backgroundEl = document.getElementById('background');
             let bible = document.getElementById('bible');
 
             // Escutando Socket
             socket.on('showVerse', function(e){
                 // Mostrando na tela
                 bible.textContent = `${e.book} ${e.chapterNumber}:${e.verseNumber} - ${e.verse}`;
+                // Animação de transição
+                if(e.animation == 'animate__fadeInUp'){
+                    backgroundEl.className = `animate__animated ${e.animation}`;
+                    setTimeout(()=>{
+                        backgroundEl.className = '';
+                    }, 1000);
+                }
                 bible.className = `animate__animated ${e.animation}`;
                 setTimeout(()=>{
                     bible.className = '';
                 }, 1000);
             });
-            socket.on('toggleVerse', function(e){
-                // Removendo da tela
+            socket.on('removeVerse', function(e){
+                backgroundEl.className = `animate__animated ${e.animation}`;
                 bible.className = `animate__animated ${e.animation}`;
             });
             socket.on('style', function(e){
                 // Carregando Estilos
-                let { backgroundColor, color, fontSize, textAlign, fontFamily, fontWeight } = e;
-                document.body.style.backgroundColor = backgroundColor;
+                let { background, color, fontSize, textAlign, fontFamily, fontWeight } = e;
+                backgroundEl.style.background = background;
                 bible.style.color = color;
                 bible.style.fontSize = fontSize + "px";
                 bible.style.textAlign = textAlign;
