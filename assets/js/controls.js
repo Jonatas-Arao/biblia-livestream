@@ -142,7 +142,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Função sendVerse - Mandar para https://bible-livestream.onrender.comscreen via Socket.io
+    // Função sendVerse - Mandar para https://bible-livestream.onrender.com/screen via Socket.io
     function sendVerse(animation){
         let actualVerseText = document.getElementById('actualVerseText');
         let showVerse = {
@@ -193,7 +193,7 @@ window.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // Adicionando Evento sendStyle - Mandar para https://bible-livestream.onrender.comscreen via Socket.io
+    // Adicionando Evento sendStyle - Mandar para https://bible-livestream.onrender.com/screen via Socket.io
     sendStyle.addEventListener('click', () => {
         socket.emit('style', getStyle());
     });
