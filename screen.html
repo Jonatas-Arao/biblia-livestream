@@ -20,7 +20,7 @@
     <script src="https://cdn.socket.io/4.7.4/socket.io.min.js" integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4" crossorigin="anonymous"></script>
     <script>
         // Iniciando Socket.io
-        var socket = io('https://bible-livestream.onrender.com');
+        var socket = io('http://localhost:3000');
         window.addEventListener('DOMContentLoaded', () => {
             // Obtendo variavél da página
             let backgroundEl = document.getElementById('background');
@@ -49,6 +49,7 @@
             socket.on('style', function(e){
                 // Carregando Estilos
                 let { background, color, fontSize, textAlign, fontFamily, fontWeight } = e;
+                console.log(background)
                 backgroundEl.style.background = background;
                 bible.style.color = color;
                 bible.style.fontSize = fontSize + "px";
