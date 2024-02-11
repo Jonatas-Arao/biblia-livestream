@@ -1,5 +1,5 @@
 //  Acessando Servidor Socket Local
-const socket = io('http://localhost:3000');
+const socket = io('https://bible-livestream.onrender.com');
 
 const authToken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlNhdCBBcHIgMTEgMjAyMCAwMzoxNDozMiBHTVQrMDAwMC5qb25hdGFzMTJhcG9zdG9saWNvQGdtYWlsLmNvbSIsImlhdCI6MTU4NjU3NDg3Mn0.PG8AsYYoN7q3ZPgoCulj9UPiTIaLkOw_RNlcY4_XFEw'; //Insira o Token de Autenticação aqui
  // Obtendo acesso à API
@@ -142,7 +142,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Função sendVerse - Mandar para http://localhost:3000/screen via Socket.io
+    // Função sendVerse - Mandar para https://bible-livestream.onrender.comscreen via Socket.io
     function sendVerse(animation){
         let actualVerseText = document.getElementById('actualVerseText');
         let showVerse = {
@@ -193,7 +193,7 @@ window.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // Adicionando Evento sendStyle - Mandar para http://localhost:3000/screen via Socket.io
+    // Adicionando Evento sendStyle - Mandar para https://bible-livestream.onrender.comscreen via Socket.io
     sendStyle.addEventListener('click', () => {
         socket.emit('style', getStyle());
     });
