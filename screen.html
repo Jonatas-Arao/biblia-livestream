@@ -49,8 +49,7 @@
             socket.on('style', function(e){
                 // Carregando Estilos
                 let { background, color, fontSize, textAlign, fontFamily, fontWeight } = e;
-                console.log(background)
-                backgroundEl.style.background = background;
+                backgroundEl.style.background = `${background}`;
                 bible.style.color = color;
                 bible.style.fontSize = fontSize + "px";
                 bible.style.textAlign = textAlign;
